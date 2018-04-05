@@ -1,12 +1,11 @@
 #!/usr/bin/env python
-#
-#
-#$ python3 bgpcheck.py devices
-#Hostname: srx1
-#10.1.1.3 100 Established 11:25 None
-#Hostname: srx3
-#10.1.1.1 100 Established 11:28 None
-
+"""
+$ python3 bgpdown.py devices
+srx1 1.1.1.1 Idle 1 None 2:44:41
+srx1 2.2.2.0 Idle 2 None 2:44:41
+srx1 29.29.2.10 Idle 18 None 2:39:35
+srx1 29.29.2.9 Idle 20 None 2:39:35
+"""
 import sys
 import yaml
 from devicecred import *
@@ -25,7 +24,7 @@ bgpSummary:
 summaryView:
   fields:
     peer-state: peer-state
-    peer-as: peer-as
+    peer-as: {peer-as: int}
     elapsed-time: elapsed-time
     description: description
 '''
@@ -53,38 +52,35 @@ def bgpDown(dev):
     try:
         dev.open()
     except ConnectError as conErr:
-        pprint("Cannot connect to device: {0}".format(conErr))
+        print("Cannot connect to device: {0}".format(conErr))
         sys.exit(1)
     except ConnectAuthError as conAuth:
-        pprint("Cannot connect to device: {0}".format(conAuth))
+        print("Cannot connect to device: {0}".format(conAuth))
         sys.exit(1)
     except ConnectTimeoutError as conTimeOut:
-        pprint("Cannot connect to device: {0}".format(conAuth))
+        print("Cannot connect to device: {0}".format(conAuth))
         sys.exit(1)
     hostname = dev.facts['hostname']
     bgp = bgpSummary(dev).get()
-    for peer in bgp.items():
-        neig = peer[0]
-        bgpDetails = dict(peer[1])
-        state = bgpDetails['peer-state']
-        asn = bgpDetails['peer-as']
-        time = bgpDetails['elapsed-time']
-        desc = bgpDetails['description']
-        if state != 'Established':
-            # print(sorted(bgpDetails, key=lambda ele: ele['peer-as']))
-            # print(sorted(asn, key=lambda x: x[0]))
-            # # print(asn)
-            # # # print('Hostname: ' + hostname)
-            print(hostname, neig, asn, state, time, desc)      
-    # for peer in bgp.items():
-    #     neig = peer[0]
-    #     state = peer[1][0][1]
-    #     asn = peer[1][1][1]
-    #     time = peer[1][2][1]
-    #     desc = peer[1][3][1]
-    #     if state != 'Established':
-    #         print('Hostname: ' + hostname)
-    #         print(neig, asn, state, time, desc)    
+    #Empty list is created
+    bgp_down = []
+    #for loop with key, value pair (bgp peers, peer detials), that is put into 
+    #a dict  
+    for neighbor, details in bgp.items():
+        bgpDetails = dict(details)
+    #from the dict all bgp sessions that are not Established and added to the list
+        if bgpDetails['peer-state'] != 'Established':
+            bgpDetails['neighbor'] = neighbor  # assumes this is not already in here.
+            bgp_down.append(bgpDetails)
+    #the un established peers are sorted by ASN and their details looped 
+    #and defined as variables, that are printed out 
+    for bgpDetails in sorted(bgp_down, key=lambda ele: ele['peer-as']):
+            neighbor = bgpDetails['neighbor']
+            state = bgpDetails['peer-state']
+            asn = bgpDetails['peer-as']
+            desc = bgpDetails['description']
+            time = bgpDetails['elapsed-time']
+            print(hostname, neighbor, state, asn, desc, time)  
     dev.close()
 
 def main():
