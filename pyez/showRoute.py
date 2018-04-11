@@ -44,6 +44,6 @@ def main():
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print('Please provide a device/ip address and a Route')
+        print('Please provide the following "python3 showRoute.py host route"')
         sys.exit(1)
     main()
