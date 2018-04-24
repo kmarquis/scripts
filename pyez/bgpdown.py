@@ -8,6 +8,7 @@ srx1 29.29.2.9 Idle 20 None 2:39:35
 """
 import sys
 import yaml
+from huepy import *
 from devicecred import *
 from jnpr.junos import Device
 from jnpr.junos.exception import *
@@ -52,13 +53,13 @@ def bgpDown(dev):
     try:
         dev.open()
     except ConnectError as conErr:
-        print("Cannot connect to device: {0}".format(conErr))
+        print(bad("Cannot connect to device: {0}".format(conErr)))
         sys.exit(1)
     except ConnectAuthError as conAuth:
-        print("Cannot connect to device: {0}".format(conAuth))
+        print(bad("Cannot connect to device: {0}".format(conAuth)))
         sys.exit(1)
     except ConnectTimeoutError as conTimeOut:
-        print("Cannot connect to device: {0}".format(conAuth))
+        print(bad("Cannot connect to device: {0}".format(conAuth)))
         sys.exit(1)
     hostname = dev.facts['hostname']
     bgp = bgpSummary(dev).get()
@@ -80,7 +81,7 @@ def bgpDown(dev):
             asn = bgpDetails['peer-as']
             desc = bgpDetails['description']
             time = bgpDetails['elapsed-time']
-            print(hostname, neighbor, state, asn, desc, time)  
+            print("{0} {1:20} {2:7} {3:6} {4:16} {5}".format(hostname, neighbor, state, asn, time, desc))   
     dev.close()
 
 def main():
@@ -88,6 +89,6 @@ def main():
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('Please provide full path to the file with Devices')
+        print(info(italic('Please provide the following "python3 bgpdown.py devices"')))
         sys.exit(1)
     main()
