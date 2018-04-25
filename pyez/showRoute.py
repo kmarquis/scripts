@@ -1,21 +1,29 @@
 #!/usr/bin/env python
 import sys
-import os
 import getpass
 import json
 import xmltodict
 import platform
+import socket
 from lxml import etree
 from huepy import *
 from jnpr.junos import Device
 from jnpr.junos.exception import *
 
+def lict(lict_data):
+    try:
+        if isinstance(lict_data, list):
+            return lict_data
+        elif isinstance(lict_data, dict):
+            return [lict_data]
+    except (RuntimeError, TypeError, NameError):
+        pass
+
 def deviceLogins():
     host = sys.argv[1]
     username = input('Please enter username: ')
-    port = input('Please enter port: ')
     password = getpass.getpass(prompt='Please enter password: ')
-    dev = Device(host=host, user=username, passwd=password, port=port)
+    dev = Device(host=host, user=username, passwd=password, port='22')
     getRoutes(dev)
 
 def getRoutes(dev):
@@ -23,34 +31,42 @@ def getRoutes(dev):
     try:
         dev.open()
     except ConnectError as conErr:
-        print(bad("Cannot connect to device: {0}".format(conErr)))
+        print(bad(f"Cannot connect to device: {conErr}"))
         sys.exit(1)
     except ConnectAuthError as conAuth:
-        print(bad("Cannot connect to device: {0}".format(conAuth)))
+        print(bad(f"Cannot connect to device: {conAuth}"))
         sys.exit(1)
     except ConnectTimeoutError as conTimeOut:
-        print(bad("Cannot connect to device: {0}".format(conAuth)))
+        print(bad(f"Cannot connect to device: {conTimeOut}"))
         sys.exit(1)
     hostname = dev.facts['hostname']
     routetbl = dev.rpc.get_route_information(table='inet.0', destination=showRoute)
     routeJson = json.loads(json.dumps(xmltodict.parse(etree.tostring(routetbl))))
     for route, routeVal in routeJson["route-information"].items():
         routeValDict = dict(routeVal)
-        if routeValDict["rt"]["rt-entry"]["active-tag"] == '*':
-            route = routeValDict["rt"]["rt-destination"]
-            protocol = routeValDict["rt"]["rt-entry"]["protocol-name"]
-            next_hop = routeValDict["rt"]["rt-entry"]["nh"]["to"]
-            if protocol == 'BGP':
-                neighbor = routeValDict["rt"]["rt-entry"]["learned-from"]
-                print(good(showRoute + " route is " + route))
-                print(good("The BGP next-hop neighbor is " + neighbor))
-                if platform.system() == 'windows':
-                    os.system('nslookup ' + neighbor)
+        active_route = routeValDict["rt"]["rt-entry"]
+        active_rt = active_route if isinstance(active_route, list) else [active_route]
+        for active in active_rt:
+            if active["active-tag"] == '*':
+                route = routeValDict["rt"]["rt-destination"]
+                protocol = active["protocol-name"]
+                nh = active["nh"]
+                next_hop = nh if isinstance(nh, list) else [nh]
+                for anh in next_hop:
+                    if "selected-next-hop" in anh:
+                        active_next_hop = anh["to"]
+                if protocol == 'BGP':
+                    neighbor = active["learned-from"]
+                    print(good(f"{showRoute} is part of {route} on {hostname}"))
+                    print(good(f"The BGP next-hop neighbor is {neighbor}"))
+                    try:
+                        name, alias, addresslist = socket.gethostbyaddr(neighbor)
+                        print(info(f"The next-hop device is {name}"))
+                    except socket.herror as e:
+                        print(bad(f"{neighbor} does't have rDNS: {e}"))
                 else:
-                    os.system('host ' + neighbor)
-            else:
-                print(good(showRoute + " route is " + route))
-                print(good(showRoute + " is learnt by " + protocol + " with the nexthop " + next_hop))
+                    print(good(f"{showRoute} is part of {route} on {hostname}"))
+                    print(good(f"{showRoute} is learnt via {protocol} with the nexthop {active_next_hop}"))
     dev.close()
 
 def main():
