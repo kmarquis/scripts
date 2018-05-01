@@ -30,14 +30,8 @@ def getRoutes(dev):
     showRoute = sys.argv[2]
     try:
         dev.open()
-    except ConnectError as conErr:
+    except (ConnectError, ConnectAuthError, ConnectTimeoutError) as conErr:
         print(bad(f"Cannot connect to device: {conErr}"))
-        sys.exit(1)
-    except ConnectAuthError as conAuth:
-        print(bad(f"Cannot connect to device: {conAuth}"))
-        sys.exit(1)
-    except ConnectTimeoutError as conTimeOut:
-        print(bad(f"Cannot connect to device: {conTimeOut}"))
         sys.exit(1)
     hostname = dev.facts['hostname']
     routetbl = dev.rpc.get_route_information(table='inet.0', destination=showRoute)

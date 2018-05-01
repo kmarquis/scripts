@@ -1,0 +1,68 @@
+
+Logs collection started at 2018-05-01 23:18:29.621015 on localhost
+
+    OSPF database, Area 0.0.0.0
+ Type       ID               Adv Rtr           Seq      Age  Opt  Cksum  Len 
+Router  *192.168.100.1    192.168.100.1    0x8000002c   299  0x22 0xd3bf  60
+Router   192.168.100.2    192.168.100.2    0x80000027   625  0x22 0xe4a6  84
+Router   192.168.100.3    192.168.100.3    0x80000023  1235  0x22 0x5240  60
+
+Logs collection started at 2018-05-01 23:18:30.238326 on localhost
+Interface           State   Area            DR ID           BDR ID          Nbrs
+ge-0/0/2.0          PtToPt  0.0.0.0         0.0.0.0         0.0.0.0            1
+lo0.0               DRother 0.0.0.0         0.0.0.0         0.0.0.0            0
+
+Logs collection started at 2018-05-01 23:18:30.853395 on localhost
+Address          Interface              State     ID               Pri  Dead
+10.1.1.0         ge-0/0/2.0             Full      192.168.100.2    128    38
+
+Logs collection started at 2018-05-01 23:18:31.466175 on localhost
+Instance: master
+  Router ID: 192.168.100.1
+  Route table index: 0
+  LSA refresh time: 50 minutes
+  Area: 0.0.0.0
+    Stub type: Not Stub
+    Authentication Type: None
+    Area border routers: 0, AS boundary routers: 0
+    Neighbors
+      Up (in full state): 1
+  Topology: default (ID 0)
+    Prefix export count: 0
+    Full SPF runs: 19
+    SPF delay: 0.200000 sec, SPF holddown: 5 sec, SPF rapid runs: 3
+    Backup SPF: Not Needed
+
+Logs collection started at 2018-05-01 23:18:36.593225 on localhost
+
+    OSPF database, Area 0.0.0.0
+ Type       ID               Adv Rtr           Seq      Age  Opt  Cksum  Len 
+Router   192.168.100.1    192.168.100.1    0x8000002c   307  0x22 0xd3bf  60
+Router   192.168.100.2    192.168.100.2    0x80000027   632  0x22 0xe4a6  84
+Router  *192.168.100.3    192.168.100.3    0x80000023  1240  0x22 0x5240  60
+
+Logs collection started at 2018-05-01 23:18:37.210460 on localhost
+Interface           State   Area            DR ID           BDR ID          Nbrs
+ge-0/0/1.0          PtToPt  0.0.0.0         0.0.0.0         0.0.0.0            1
+lo0.0               DRother 0.0.0.0         0.0.0.0         0.0.0.0            0
+
+Logs collection started at 2018-05-01 23:18:37.823672 on localhost
+Address          Interface              State     ID               Pri  Dead
+10.1.1.2         ge-0/0/1.0             Full      192.168.100.2    128    38
+
+Logs collection started at 2018-05-01 23:18:38.441306 on localhost
+Instance: master
+  Router ID: 192.168.100.3
+  Route table index: 0
+  LSA refresh time: 50 minutes
+  Area: 0.0.0.0
+    Stub type: Not Stub
+    Authentication Type: None
+    Area border routers: 0, AS boundary routers: 0
+    Neighbors
+      Up (in full state): 1
+  Topology: default (ID 0)
+    Prefix export count: 0
+    Full SPF runs: 9
+    SPF delay: 0.200000 sec, SPF holddown: 5 sec, SPF rapid runs: 3
+    Backup SPF: Not Needed

@@ -52,14 +52,8 @@ def openFile():
 def bgpDown(dev):
     try:
         dev.open()
-    except ConnectError as conErr:
+    except (ConnectError, ConnectAuthError, ConnectTimeoutError) as conErr:
         print(bad("Cannot connect to device: {0}".format(conErr)))
-        sys.exit(1)
-    except ConnectAuthError as conAuth:
-        print(bad("Cannot connect to device: {0}".format(conAuth)))
-        sys.exit(1)
-    except ConnectTimeoutError as conTimeOut:
-        print(bad("Cannot connect to device: {0}".format(conAuth)))
         sys.exit(1)
     hostname = dev.facts['hostname']
     bgp = bgpSummary(dev).get()
