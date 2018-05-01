@@ -2,7 +2,7 @@
 import sys
 import yaml
 from devicecred import *
-from jnpr.junos.exception import ConnectError
+from jnpr.junos.exception import *
 from jnpr.junos import Device
 from jnpr.junos.factory.factory_loader import FactoryLoader
 
@@ -18,15 +18,9 @@ def getPrefixList(dev):
     #Open Connection Devices
     try:
         dev.open()
-    except ConnectError as conErr:
+    except (ConnectError, ConnectAuthError, ConnectTimeoutError) as conErr:
         print("Cannot connect to device: {0}".format(conErr))
         sys.exit(1)
-    except ConnectAuthError as conAuth:
-        print("Cannot connect to device: {0}".format(conAuth))
-        sys.exit(1)
-    except ConnectTimeoutError as conTimeOut:
-        print("Cannot connect to device: {0}".format(conAuth))
-        sys.exit(1) 
     hostname = dev.facts['hostname']
     yaml_data = \
     """---

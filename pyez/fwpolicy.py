@@ -52,15 +52,9 @@ def openFile():
 def getFirewallRules(dev):
     try:
         dev.open()
-    except ConnectError as conErr:
+    except (ConnectError, ConnectAuthError, ConnectTimeoutError) as conErr:
         pprint("Cannot connect to device: {0}".format(conErr))
         sys.exit(1)
-    except ConnectAuthError as conAuth:
-        pprint("Cannot connect to device: {0}".format(conAuth))
-        sys.exit(1)
-    except ConnectTimeoutError as conTimeOut:
-        pprint("Cannot connect to device: {0}".format(conAuth))
-        sys.exit(1)  
     hostname = dev.facts['hostname']
     policy = firewallPolicyTable(dev).get()
     for fromzone, details in policy.items():
