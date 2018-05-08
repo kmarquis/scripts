@@ -1,0 +1,4 @@
+show ospf interface
+show ospf database
+show ospf neighbor
+show ospf overview
