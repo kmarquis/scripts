@@ -10,20 +10,20 @@ from datetime import datetime
 and save the output to newly created file.
 
 Example:
-    $ python3 ospf.py devices ospf.txt
+    $ python3 showCommands.py devices commands ospf.txt
 
 Expected Output:
-    $ python3 ospf.py devices ospf.txt
+    $ python3 showCommands.py devices commands ospf.txt
     Enter Username: root
     Enter Password:
     [!] You are being connected to localhost
     [+] SSH connectivity with localhost has been established!
     [~] Commands are being collection now
-    [+] You are now disconnected
+    [+] You are now disconnected from localhost
     [!] You are being connected to localhost
     [+] SSH connectivity with localhost has been established!
     [~] Commands are being collection now
-    [+] You are now disconnected
+    [+] You are now disconnected from localhost
     [!] You are being connected to localhost
     [-] An Error has occured. Please check Connection to device timed-out: juniper localhost:2202
 """
@@ -38,13 +38,12 @@ def openFile():
             showCommands(dev)
 
 def showCommands(dev):
-    output_file = sys.argv[2]
-    command_list = [
-         "show ospf database",
-         "show ospf interface",
-         "show ospf neighbor",
-         "show ospf overview",
-    ]
+    output_file = sys.argv[3]
+    command_list = []
+    with open(sys.argv[2]) as l:
+        for newline in l:
+            commands = newline.strip().split('\n')
+            command_list.extend(commands)
     print(info("You are being connected to {0}".format(dev["ip"])))
     try:
         connect = ConnectHandler(**dev)
@@ -53,11 +52,11 @@ def showCommands(dev):
         with open(output_file, "a") as i:
             for command in command_list:
                 output = connect.send_command(command)
-                i.write("\nLogs collection started at {0} on {1}".format(datetime.now(), dev["ip"]))
+                i.write("\n{2} collected at {0} from {1}".format(datetime.now(), dev["ip"], command))
                 i.write(output)
         connect.disconnect()
         print(good(green("You are now disconnected from {0}".format(dev["ip"]))))
-    except (AuthenticationException, SSHException) as conErr:
+    except (AuthenticationException, SSHException, KeyboardInterrupt) as conErr:
         print(bad(lightred("An Error has occured. Please check {0}".format(conErr))))
         sys.exit(1)
 
@@ -65,7 +64,7 @@ def main():
     openFile()
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        print(info(lightred('Please provide the following "python3 {0} device_file output_file"'.format(sys.argv[0]))))
+    if len(sys.argv) < 4:
+        print(info(lightred('Please provide the following "python3 {0} device_file command_list output_file"'.format(sys.argv[0]))))
         sys.exit(1)
     main()
