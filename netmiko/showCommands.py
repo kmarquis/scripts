@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import sys
+import argparse
 import getpass
 from huepy import *
 from netmiko import ConnectHandler
