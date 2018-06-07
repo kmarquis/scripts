@@ -1,22 +1,22 @@
 
-show ospf interface collected at 2018-05-08 21:42:46.494960 from localhost
+show ospf interface collected at 2018-05-22 20:05:59.088445 from localhost
 Interface           State   Area            DR ID           BDR ID          Nbrs
 ge-0/0/2.0          PtToPt  0.0.0.0         0.0.0.0         0.0.0.0            1
 lo0.0               DRother 0.0.0.0         0.0.0.0         0.0.0.0            0
 
-show ospf database collected at 2018-05-08 21:42:47.110297 from localhost
+show ospf database collected at 2018-05-22 20:05:59.702597 from localhost
 
     OSPF database, Area 0.0.0.0
  Type       ID               Adv Rtr           Seq      Age  Opt  Cksum  Len 
-Router  *192.168.100.1    192.168.100.1    0x8000002f  1606  0x22 0xcdc2  60
-Router   192.168.100.2    192.168.100.2    0x8000002a  1932  0x22 0xdea9  84
-Router   192.168.100.3    192.168.100.3    0x80000026  2543  0x22 0x4c43  60
+Router  *192.168.100.1    192.168.100.1    0x80000037  2542  0x22 0xbdca  60
+Router   192.168.100.2    192.168.100.2    0x80000031  2110  0x22 0xd0b0  84
+Router   192.168.100.3    192.168.100.3    0x8000002d  2643  0x22 0x3e4a  60
 
-show ospf neighbor collected at 2018-05-08 21:42:47.729101 from localhost
+show ospf neighbor collected at 2018-05-22 20:06:00.320095 from localhost
 Address          Interface              State     ID               Pri  Dead
-10.1.1.0         ge-0/0/2.0             Full      192.168.100.2    128    33
+10.1.1.0         ge-0/0/2.0             Full      192.168.100.2    128    36
 
-show ospf overview collected at 2018-05-08 21:42:48.347466 from localhost
+show ospf overview collected at 2018-05-22 20:06:00.935801 from localhost
 Instance: master
   Router ID: 192.168.100.1
   Route table index: 0
@@ -29,28 +29,28 @@ Instance: master
       Up (in full state): 1
   Topology: default (ID 0)
     Prefix export count: 0
-    Full SPF runs: 19
+    Full SPF runs: 21
     SPF delay: 0.200000 sec, SPF holddown: 5 sec, SPF rapid runs: 3
     Backup SPF: Not Needed
 
-show ospf interface collected at 2018-05-08 21:42:53.474195 from localhost
+show ospf interface collected at 2018-05-22 20:06:06.076941 from localhost
 Interface           State   Area            DR ID           BDR ID          Nbrs
 ge-0/0/1.0          PtToPt  0.0.0.0         0.0.0.0         0.0.0.0            1
 lo0.0               DRother 0.0.0.0         0.0.0.0         0.0.0.0            0
 
-show ospf database collected at 2018-05-08 21:42:54.093809 from localhost
+show ospf database collected at 2018-05-22 20:06:06.693123 from localhost
 
     OSPF database, Area 0.0.0.0
  Type       ID               Adv Rtr           Seq      Age  Opt  Cksum  Len 
-Router   192.168.100.1    192.168.100.1    0x8000002f  1576  0x22 0xcdc2  60
-Router   192.168.100.2    192.168.100.2    0x8000002a  1901  0x22 0xdea9  84
-Router  *192.168.100.3    192.168.100.3    0x80000026  2509  0x22 0x4c43  60
+Router   192.168.100.1    192.168.100.1    0x80000037  2514  0x22 0xbdca  60
+Router   192.168.100.2    192.168.100.2    0x80000031  2081  0x22 0xd0b0  84
+Router  *192.168.100.3    192.168.100.3    0x8000002d  2611  0x22 0x3e4a  60
 
-show ospf neighbor collected at 2018-05-08 21:42:54.712155 from localhost
+show ospf neighbor collected at 2018-05-22 20:06:07.311810 from localhost
 Address          Interface              State     ID               Pri  Dead
-10.1.1.2         ge-0/0/1.0             Full      192.168.100.2    128    36
+10.1.1.2         ge-0/0/1.0             Full      192.168.100.2    128    33
 
-show ospf overview collected at 2018-05-08 21:42:55.330241 from localhost
+show ospf overview collected at 2018-05-22 20:06:07.925740 from localhost
 Instance: master
   Router ID: 192.168.100.3
   Route table index: 0
