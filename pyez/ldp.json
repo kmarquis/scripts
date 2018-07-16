@@ -1,0 +1,72 @@
+{
+    "ldp-database-type": "Input label database",
+    "ldp-session-id": "192.168.100.1:0--192.168.100.2:0",
+    "ldp-binding": [
+        {
+            "ldp-label": "299968",
+            "ldp-prefix": "192.168.100.1/32"
+        },
+        {
+            "ldp-label": "3",
+            "ldp-prefix": "192.168.100.2/32"
+        },
+        {
+            "ldp-label": "299984",
+            "ldp-prefix": "192.168.100.3/32"
+        }
+    ]
+}
+{
+    "ldp-database-type": "Output label database",
+    "ldp-session-id": "192.168.100.1:0--192.168.100.2:0",
+    "ldp-binding": [
+        {
+            "ldp-label": "3",
+            "ldp-prefix": "192.168.100.1/32"
+        },
+        {
+            "ldp-label": "300000",
+            "ldp-prefix": "192.168.100.2/32"
+        },
+        {
+            "ldp-label": "300016",
+            "ldp-prefix": "192.168.100.3/32"
+        }
+    ]
+}
+{
+    "ldp-database-type": "Input label database",
+    "ldp-session-id": "192.168.100.1:0--192.168.100.3:0",
+    "ldp-binding": [
+        {
+            "ldp-label": "299952",
+            "ldp-prefix": "192.168.100.1/32"
+        },
+        {
+            "ldp-label": "299936",
+            "ldp-prefix": "192.168.100.2/32"
+        },
+        {
+            "ldp-label": "3",
+            "ldp-prefix": "192.168.100.3/32"
+        }
+    ]
+}
+{
+    "ldp-database-type": "Output label database",
+    "ldp-session-id": "192.168.100.1:0--192.168.100.3:0",
+    "ldp-binding": [
+        {
+            "ldp-label": "3",
+            "ldp-prefix": "192.168.100.1/32"
+        },
+        {
+            "ldp-label": "300000",
+            "ldp-prefix": "192.168.100.2/32"
+        },
+        {
+            "ldp-label": "300016",
+            "ldp-prefix": "192.168.100.3/32"
+        }
+    ]
+}

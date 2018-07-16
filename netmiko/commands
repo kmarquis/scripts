@@ -1,4 +1,2 @@
-show ospf interface
-show ospf database
-show ospf neighbor
-show ospf overview
+clear log pim.log
+clear pim join

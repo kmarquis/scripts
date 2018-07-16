@@ -1,0 +1,120 @@
+
+clear pim join collected at 2018-06-22 09:51:58.607044 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear pim join collected at 2018-06-22 09:52:06.078359 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear pim join collected at 2018-06-22 09:52:13.587160 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear pim join collected at 2018-06-22 10:02:53.271457 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:02:53.890183 from localhost
+
+clear pim join collected at 2018-06-22 10:03:01.333840 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:03:01.952294 from localhost
+
+clear pim join collected at 2018-06-22 10:03:07.394485 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:03:08.010587 from localhost
+
+clear pim join collected at 2018-06-22 10:09:07.500959 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:09:08.119305 from localhost
+
+clear pim join collected at 2018-06-22 10:09:13.563538 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:09:14.179216 from localhost
+
+clear pim join collected at 2018-06-22 10:09:19.623259 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:09:20.240768 from localhost
+
+clear pim join collected at 2018-06-22 10:30:30.973033 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:30:31.589867 from localhost
+
+clear pim join collected at 2018-06-22 10:30:39.048037 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:30:39.666381 from localhost
+
+clear pim join collected at 2018-06-22 10:30:47.082342 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:30:47.699722 from localhost
+
+clear pim join collected at 2018-06-22 10:31:52.903263 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:31:53.521208 from localhost
+
+clear pim join collected at 2018-06-22 10:32:00.993286 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:32:01.610230 from localhost
+
+clear pim join collected at 2018-06-22 10:32:09.072819 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 10:32:09.687055 from localhost
+
+clear pim join collected at 2018-06-22 11:12:23.895396 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 11:12:24.514400 from localhost
+
+clear pim join collected at 2018-06-22 11:12:31.967919 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 11:12:32.586216 from localhost
+
+clear pim join collected at 2018-06-22 11:12:37.923423 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 11:12:38.542917 from localhost
+
+clear log pim.log collected at 2018-06-22 11:15:59.249300 from localhost
+
+clear pim join collected at 2018-06-22 11:15:59.868531 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 11:16:05.312914 from localhost
+
+clear pim join collected at 2018-06-22 11:16:05.932107 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
+
+clear log pim.log collected at 2018-06-22 11:16:11.296351 from localhost
+
+clear pim join collected at 2018-06-22 11:16:11.915395 from localhost
+Clearing Join/Prune state for 224.0.0.0/4
+Clearing Join/Prune state for ff00::/8
