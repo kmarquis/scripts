@@ -1,0 +1,73 @@
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/14.1X53/junos">
+    <chassis-inventory xmlns="http://xml.juniper.net/junos/14.1X53/junos-chassis">
+        <chassis junos:style="inventory">
+            <name>Chassis</name>
+            <serial-number>GX0211473435</serial-number>
+            <description>EX4500-40F</description>
+            <chassis-module>
+                <name>Routing Engine 0</name>
+                <version>REV 10</version>
+                <part-number>750-036562</part-number>
+                <serial-number>GX0211473435</serial-number>
+                <description>EX4500-40F</description>
+                <clei-code>CMMDP10DRA</clei-code>
+                <model-number>EX4500-40F-VC1-FB</model-number>
+            </chassis-module>
+            <chassis-module>
+                <name>FPC 0</name>
+                <version>REV 10</version>
+                <part-number>750-036562</part-number>
+                <serial-number>GX0211473435</serial-number>
+                <description>EX4500-40F</description>
+                <clei-code>CMMDP10DRA</clei-code>
+                <model-number>EX4500-40F-VC1-FB</model-number>
+                <chassis-sub-module>
+                    <name>CPU</name>
+                    <part-number>BUILTIN</part-number>
+                    <serial-number>BUILTIN</serial-number>
+                    <description>FPC CPU</description>
+                </chassis-sub-module>
+                <chassis-sub-module>
+                    <name>PIC 0</name>
+                    <part-number>BUILTIN</part-number>
+                    <serial-number>BUILTIN</serial-number>
+                    <description>40x 1/10GE</description>
+                    <clei-code>CMMDP10DRA</clei-code>
+                    <model-number>EX4500-40F-VC1-FB</model-number>
+                    <chassis-sub-sub-module>
+                        <name>Xcvr 10</name>
+                        <version>REV 02</version>
+                        <part-number>740-011613</part-number>
+                        <serial-number>PMA3KHN</serial-number>
+                        <description>SFP-SX</description>
+                    </chassis-sub-sub-module>
+                </chassis-sub-module>
+                <chassis-sub-module>
+                    <name>PIC 3</name>
+                    <version>REV 03</version>
+                    <part-number>711-031050</part-number>
+                    <serial-number>EC0211461964</serial-number>
+                    <description>2x 32GE Virtual Chassis Module</description>
+                    <clei-code>CMUIAA9BAA</clei-code>
+                    <model-number>EX4500-VC1-128G</model-number>
+                </chassis-sub-module>
+            </chassis-module>
+            <chassis-module>
+                <name>Power Supply 0</name>
+                <version>REV 01</version>
+                <part-number>740-044237</part-number>
+                <serial-number>EK0712346419</serial-number>
+                <description>PS 1000W AC FORWARD AIR FLOW CONTROL</description>
+                <clei-code>COUPAGJETA</clei-code>
+                <model-number>EX4500-PWR1-AC-FB</model-number>
+            </chassis-module>
+            <chassis-module>
+                <name>Fan Tray</name>
+                <description>Fan Tray, Back to front Airflow</description>
+            </chassis-module>
+        </chassis>
+    </chassis-inventory>
+    <cli>
+        <banner>{master:0}</banner>
+    </cli>
+</rpc-reply>

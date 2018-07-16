@@ -6,10 +6,10 @@ srx1 2.2.2.0 Idle 2 None 2:44:41
 srx1 29.29.2.10 Idle 18 None 2:39:35
 srx1 29.29.2.9 Idle 20 None 2:39:35
 """
+import getpass
 import sys
 import yaml
 from huepy import *
-from devicecred import *
 from jnpr.junos import Device
 from jnpr.junos.exception import *
 from jnpr.junos.factory.factory_loader import FactoryLoader
@@ -38,6 +38,8 @@ globals().update(FactoryLoader().load(yaml.load(yml)))
 # being taken from imported devicecred.py. It will iternate the file
 # line by line access each device then running the function bgpDown
 def openFile():
+    username = input("Enter Username: ")
+    password = getpass.getpass("Enter Password: ")
     with open(sys.argv[1]) as f:
         for line in f:
             ip_addr, port = line.strip().split()
@@ -57,6 +59,7 @@ def bgpDown(dev):
         sys.exit(1)
     hostname = dev.facts['hostname']
     bgp = bgpSummary(dev).get()
+    dev.close()
     #Empty list is created
     bgp_down = []
     #for loop with key, value pair (bgp peers, peer detials), that is put into 
@@ -76,7 +79,7 @@ def bgpDown(dev):
             desc = bgpDetails['description']
             time = bgpDetails['elapsed-time']
             print("{0} {1:20} {2:7} {3:6} {4:16} {5}".format(hostname, neighbor, state, asn, time, desc))   
-    dev.close()
+    # dev.close()
 
 def main():
     openFile()
