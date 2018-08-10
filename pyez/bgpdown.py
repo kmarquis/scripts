@@ -78,8 +78,7 @@ def bgpDown(dev):
             asn = bgpDetails['peer-as']
             desc = bgpDetails['description']
             time = bgpDetails['elapsed-time']
-            print("{0} {1:20} {2:7} {3:6} {4:16} {5}".format(hostname, neighbor, state, asn, time, desc))   
-    # dev.close()
+            print("{0} {1:20} {2:7} {3:6} {4:16} {5}".format(hostname, neighbor, state, asn, time, desc))
 
 def main():
     openFile()

@@ -1,0 +1,96 @@
+{
+    "@junos:style": "inventory",
+    "name": "Chassis",
+    "serial-number": "LX0214390898",
+    "description": "EX4550-32F",
+    "chassis-module": [
+        {
+            "name": "Routing Engine 0",
+            "version": "REV 20",
+            "part-number": "750-045402",
+            "serial-number": "LX0214390898",
+            "description": "EX4550-32F",
+            "clei-code": "CMMEU10ARA",
+            "model-number": "EX4550-32F-AFI"
+        },
+        {
+            "name": "FPC 0",
+            "version": "REV 20",
+            "part-number": "750-045402",
+            "serial-number": "LX0214390898",
+            "description": "EX4550-32F",
+            "clei-code": "CMMEU10ARA",
+            "model-number": "EX4550-32F-AFI",
+            "chassis-sub-module": [
+                {
+                    "name": "CPU",
+                    "part-number": "BUILTIN",
+                    "serial-number": "BUILTIN",
+                    "description": "FPC CPU"
+                },
+                {
+                    "name": "PIC 0",
+                    "part-number": "BUILTIN",
+                    "serial-number": "BUILTIN",
+                    "description": "32x 1G/10G SFP/SFP+",
+                    "clei-code": "CMMEU10ARA",
+                    "model-number": "EX4550-32F-AFI",
+                    "chassis-sub-sub-module": [
+                        {
+                            "name": "Xcvr 0",
+                            "version": "REV 01",
+                            "part-number": "740-021308",
+                            "serial-number": "AQD2VLG",
+                            "description": "SFP+-10G-SR"
+                        },
+                        {
+                            "name": "Xcvr 1",
+                            "version": "REV 02",
+                            "part-number": "740-013111",
+                            "serial-number": "G164586",
+                            "description": "SFP-T"
+                        }
+                    ]
+                },
+                {
+                    "name": "PIC 2",
+                    "version": "REV 07",
+                    "part-number": "711-039080",
+                    "serial-number": "LV0217457099",
+                    "description": "8x 1G/10G SFP/SFP+",
+                    "clei-code": "CMUIAFBBAA",
+                    "model-number": "EX4550-EM-8XSFP",
+                    "chassis-sub-sub-module": [
+                        {
+                            "name": "Xcvr 0",
+                            "version": "REV 01",
+                            "part-number": "740-021308",
+                            "serial-number": "AD162030AS9",
+                            "description": "SFP+-10G-SR"
+                        },
+                        {
+                            "name": "Xcvr 3",
+                            "version": "REV 01",
+                            "part-number": "740-021308",
+                            "serial-number": "1YT511109657",
+                            "description": "SFP+-10G-SR"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Power Supply 0",
+            "version": "REV 03",
+            "part-number": "740-044332",
+            "serial-number": "1GA13431428",
+            "description": "JPSU-650W-AC-AFI",
+            "clei-code": "CMUPABKBAA",
+            "model-number": "JPSU-650W-AC-AFI"
+        },
+        {
+            "name": "Fan Tray",
+            "description": "Fan Module, Airflow In (AFI)"
+        }
+    ]
+}
