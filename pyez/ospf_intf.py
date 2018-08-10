@@ -58,7 +58,7 @@ def getOSPF(dev):
         interfaces.append(ospf_int)
 
     print('Host: {}'.format(hostname))
-    print('{:12} {:10} {:15} {:7} {:7} {:7} {:7} {:5} {}'.format("interface", "area", "neighbor id", "state" ,"hello", 'dead','auth', "mtu", "mask"))
+    print('{:12} {:10} {:7} {:7} {:7} {:5} {}'.format("interface", "area" ,"hello", 'dead','auth', "mtu", "mask"))
     for intf in data.get("ospf-interface-information", {}).get("ospf-interface"):
         name = intf.get("interface-name")
         area = intf.get("ospf-area")
@@ -67,12 +67,12 @@ def getOSPF(dev):
         dead = intf.get("dead-interval")
         auth = intf.get("authentication-type")
         mtu = intf.get("mtu")
-        p = y if isinstance(y, list) else [y]
-        for neigs in p:
-            state = neigs.get("ospf-neighbor-state")
-            ospf_id = neigs.get("neighbor-id")
-            if name in interfaces:
-                print('{:12} {:10} {:15} {:7} {:7} {:7} {:7} {:5} {}'.format(name, area, ospf_id, state, hello, dead, auth, mtu, netmask))
+        # p = y if isinstance(y, list) else [y]
+        # # for neigs in p:
+        # #     state = neigs.get("ospf-neighbor-state")
+        # #     # ospf_id = neigs.get("neighbor-address")
+        if name in interfaces:
+            print('{:12} {:10} {:7} {:7} {:7} {:5} {}'.format(name, area, hello, dead, auth, mtu, netmask))
     print('\nNeighboring Devices are: ')
 
     k = i if isinstance(i, list) else [i]

@@ -1,0 +1,94 @@
+<rpc-reply xmlns:junos="http://xml.juniper.net/junos/14.1X53/junos">
+    <chassis-inventory xmlns="http://xml.juniper.net/junos/14.1X53/junos-chassis">
+        <chassis junos:style="inventory">
+            <name>Chassis</name>
+            <serial-number>LX0214390898</serial-number>
+            <description>EX4550-32F</description>
+            <chassis-module>
+                <name>Routing Engine 0</name>
+                <version>REV 20</version>
+                <part-number>750-045402</part-number>
+                <serial-number>LX0214390898</serial-number>
+                <description>EX4550-32F</description>
+                <clei-code>CMMEU10ARA</clei-code>
+                <model-number>EX4550-32F-AFI</model-number>
+            </chassis-module>
+            <chassis-module>
+                <name>FPC 0</name>
+                <version>REV 20</version>
+                <part-number>750-045402</part-number>
+                <serial-number>LX0214390898</serial-number>
+                <description>EX4550-32F</description>
+                <clei-code>CMMEU10ARA</clei-code>
+                <model-number>EX4550-32F-AFI</model-number>
+                <chassis-sub-module>
+                    <name>CPU</name>
+                    <part-number>BUILTIN</part-number>
+                    <serial-number>BUILTIN</serial-number>
+                    <description>FPC CPU</description>
+                </chassis-sub-module>
+                <chassis-sub-module>
+                    <name>PIC 0</name>
+                    <part-number>BUILTIN</part-number>
+                    <serial-number>BUILTIN</serial-number>
+                    <description>32x 1G/10G SFP/SFP+</description>
+                    <clei-code>CMMEU10ARA</clei-code>
+                    <model-number>EX4550-32F-AFI</model-number>
+                    <chassis-sub-sub-module>
+                        <name>Xcvr 0</name>
+                        <version>REV 01</version>
+                        <part-number>740-021308</part-number>
+                        <serial-number>AQD2VLG</serial-number>
+                        <description>SFP+-10G-SR</description>
+                    </chassis-sub-sub-module>
+                    <chassis-sub-sub-module>
+                        <name>Xcvr 1</name>
+                        <version>REV 02</version>
+                        <part-number>740-013111</part-number>
+                        <serial-number>G164586</serial-number>
+                        <description>SFP-T</description>
+                    </chassis-sub-sub-module>
+                </chassis-sub-module>
+                <chassis-sub-module>
+                    <name>PIC 2</name>
+                    <version>REV 07</version>
+                    <part-number>711-039080</part-number>
+                    <serial-number>LV0217457099</serial-number>
+                    <description>8x 1G/10G SFP/SFP+</description>
+                    <clei-code>CMUIAFBBAA</clei-code>
+                    <model-number>EX4550-EM-8XSFP</model-number>
+                    <chassis-sub-sub-module>
+                        <name>Xcvr 0</name>
+                        <version>REV 01</version>
+                        <part-number>740-021308</part-number>
+                        <serial-number>AD162030AS9</serial-number>
+                        <description>SFP+-10G-SR</description>
+                    </chassis-sub-sub-module>
+                    <chassis-sub-sub-module>
+                        <name>Xcvr 3</name>
+                        <version>REV 01</version>
+                        <part-number>740-021308</part-number>
+                        <serial-number>1YT511109657</serial-number>
+                        <description>SFP+-10G-SR</description>
+                    </chassis-sub-sub-module>
+                </chassis-sub-module>
+            </chassis-module>
+            <chassis-module>
+                <name>Power Supply 0</name>
+                <version>REV 03</version>
+                <part-number>740-044332</part-number>
+                <serial-number>1GA13431428</serial-number>
+                <description>JPSU-650W-AC-AFI</description>
+                <clei-code>CMUPABKBAA</clei-code>
+                <model-number>JPSU-650W-AC-AFI</model-number>
+            </chassis-module>
+            <chassis-module>
+                <name>Fan Tray</name>
+                <description>Fan Module, Airflow In (AFI)</description>
+            </chassis-module>
+        </chassis>
+    </chassis-inventory>
+    <cli>
+        <banner>{master:0}</banner>
+    </cli>
+</rpc-reply>
