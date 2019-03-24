@@ -34,14 +34,15 @@ def hardware(dev):
     data = xmltodict.parse(etree.tostring(intf))
 
     print('Host: {}'.format(hostname))
-    print('{:10} {:10} {:20}'.format('Interface', 'Status', 'MAC Address'))
+    print('{:10} {:10} {:20} {}'.format('Interface', 'Status', 'MAC Address', 'Description'))
     for intf_data in data.get("interface-information", {}).get("physical-interface"):
         intfs = intf_data.get("name")
         admin = intf_data.get("admin-status", {}).get("#text")
         oper = intf_data.get("oper-status")
         mac = intf_data.get("current-physical-address")
+        desc = intf_data.get("description")
         if any(intfs.startswith(inf) for inf in (intf_type)):
-            print('{:10} {:10} {:20}'.format(intfs, admin + '/' + oper, mac))
+            print('{:10} {:10} {:20} {:}'.format(intfs, admin + '/' + oper, mac, desc))
 
 def main():
     start_time = datetime.now()
