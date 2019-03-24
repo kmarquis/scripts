@@ -43,6 +43,8 @@ def hardware(dev):
         desc = intf_data.get("description")
         if any(intfs.startswith(inf) for inf in (intf_type)):
             print('{:10} {:10} {:20} {:}'.format(intfs, admin + '/' + oper, mac, desc))
+        elif intf_data and data.get("description", None):
+             print('{:10} {:10} {:20}'.format(intfs, admin + '/' + oper, mac))
 
 def main():
     start_time = datetime.now()
