@@ -34,7 +34,7 @@ pynxos==0.0.3
 pyserial==3.4
 PyYAML==5.4
 requests==2.21.0
-rsa==4.1
+rsa==4.7
 scp==0.10.2
 six==1.11.0
 srxpolicysearch==0.0.6
